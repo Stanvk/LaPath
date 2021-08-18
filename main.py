@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 import numpy as np
+import imageio
+import matplotlib.pyplot as plt
 
 def xy2i(x,y,l):
     #return y*l+x
@@ -10,15 +12,21 @@ def i2xy(i,l):
     #return divmod(i,l)[::-1]
     return divmod(i,l)[1]+1,divmod(i,l)[0]+1
 
-maze = np.array([[1,1,1,1,1,1,1,1],[1,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,1],[1,1,1,1,1,1,1,1]])
+#maze = np.array([[1,1,1,1,1,1,1,1],[1,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,1],[1,1,1,1,1,1,1,1]])
+#maze[5,3]=1
 
-maze[6,3]=1
+imagePath = 'maze.bmp'
+imageData = np.array(imageio.imread(imagePath))
+imageData = np.round(imageData/(np.max(imageData)))
+
+maze=np.pad(1-imageData,1,mode='constant',constant_values=1)
 
 #set open points to 0.5
 maze = 0.5*(maze+1)
 
 #set exit point
-maze[7,3]=0
+#maze[7,3]=0
+maze[210,0]=0;
 
 #initialize system matrix
 lx=maze.shape[0]-2
@@ -46,8 +54,10 @@ for y in range(1,maze.shape[1]-1):
             systemMatrix[i,i]=1
             systemRHS[i]=maze[x,y]
         
-        print((x,y,i))
+        #print((x,y,i))
         #print(i2xy(i,lx))
+
+print('linear system defined')
         
 solutionVec=np.linalg.inv(systemMatrix).dot(systemRHS)
 solutionMat=np.copy(maze)
