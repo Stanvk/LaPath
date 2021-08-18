@@ -1,4 +1,5 @@
-# LaPath
-Path finding by solving the Laplace equation.
+### LaPath
+Path finding by solving the Laplace equation according to [1].
 
-Work in progress.
+### References
+[1] Connolly, Christopher & Burns, J & Weiss, R.. (1995). Path Planning Using Laplace's Equation. 
