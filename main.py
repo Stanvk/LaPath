@@ -16,7 +16,8 @@ def i2xy(i,l):
 #maze[5,3]=1
 
 #imagePath = 'maze.bmp'
-imagePath = 'maze2.bmp'
+#imagePath = 'maze2.bmp'
+imagePath = 'maze3.bmp'
 imageData = np.array(imageio.imread(imagePath))
 imageData = np.round(imageData/(np.max(imageData)))
 
@@ -66,6 +67,8 @@ solutionMat=np.copy(maze)
 for i in range(0,solutionVec.shape[0]):
     x,y=i2xy(i,lx)
     solutionMat[x,y]=solutionVec[i]
+
+plt.imshow(imageData)
     
 if False:
     from scipy import io
