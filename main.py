@@ -15,7 +15,8 @@ def i2xy(i,l):
 #maze = np.array([[1,1,1,1,1,1,1,1],[1,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,1],[1,1,1,1,1,1,1,1]])
 #maze[5,3]=1
 
-imagePath = 'maze.bmp'
+#imagePath = 'maze.bmp'
+imagePath = 'maze2.bmp'
 imageData = np.array(imageio.imread(imagePath))
 imageData = np.round(imageData/(np.max(imageData)))
 
@@ -26,7 +27,8 @@ maze = 0.5*(maze+1)
 
 #set exit point
 #maze[7,3]=0
-maze[210,0]=0;
+#maze[210,0]=0;
+maze[74:80,100]=0;
 
 #initialize system matrix
 lx=maze.shape[0]-2
@@ -64,4 +66,9 @@ solutionMat=np.copy(maze)
 for i in range(0,solutionVec.shape[0]):
     x,y=i2xy(i,lx)
     solutionMat[x,y]=solutionVec[i]
+    
+if False:
+    from scipy import io
+    io.savemat('systemMatrix.mat', {'mydata': systemMatrix})
+    io.savemat('systemRHS.mat', {'mydata': systemRHS})
     
