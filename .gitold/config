@@ -1,0 +1,8 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[remote "origin"]
+	url = https://stanvk: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@github.com/stanvk/LaPath.git
+	fetch = +refs/heads/*:refs/remotes/origin/*

@@ -1,0 +1,11 @@
+0000000000000000000000000000000000000000 772b491d04b0d597f758e5ef787740d707c42aec StanVanKraaij <s.a.t.v.kraaij@student.tue.nl> 1629288847 +0200	clone: from https://github.com/Stanvk/LaPath.git
+772b491d04b0d597f758e5ef787740d707c42aec cc05d8d016d1d7f0f28c056a60c3fe08ad096d9d StanVanKraaij <s.a.t.v.kraaij@student.tue.nl> 1629316435 +0200	pull origin main: Fast-forward
+cc05d8d016d1d7f0f28c056a60c3fe08ad096d9d a89debeb99c196f266912cf3de2cba424e5330f3 StanVanKraaij <s.a.t.v.kraaij@student.tue.nl> 1629316448 +0200	commit: Added maze and simple reader
+a89debeb99c196f266912cf3de2cba424e5330f3 bab72f5f105adf816eeeefcd2ca061bde757add1 StanVanKraaij <s.a.t.v.kraaij@student.tue.nl> 1629317643 +0200	commit: Added extra maze
+bab72f5f105adf816eeeefcd2ca061bde757add1 5eb23fde6c39e9b524c7c109f9f935463c2111c4 StanVanKraaij <s.a.t.v.kraaij@student.tue.nl> 1629317658 +0200	pull origin main: Merge made by the 'recursive' strategy.
+5eb23fde6c39e9b524c7c109f9f935463c2111c4 5ce6987a5254cb0c02c38bf48b059c96c5bebe81 StanVanKraaij <s.a.t.v.kraaij@student.tue.nl> 1629318304 +0200	pull origin main: Fast-forward
+5ce6987a5254cb0c02c38bf48b059c96c5bebe81 cb2b4ef949aef46009dcd0f331738c40cad1aba2 StanVanKraaij <s.a.t.v.kraaij@student.tue.nl> 1629323172 +0200	commit: Added mazes and gradient descent
+cb2b4ef949aef46009dcd0f331738c40cad1aba2 1481335543848e6a49e3a208b84ba836f96f410d StanVanKraaij <s.a.t.v.kraaij@student.tue.nl> 1629361313 +0200	commit: Deleted .idea
+1481335543848e6a49e3a208b84ba836f96f410d b98e5cb1bc5ad455e39a43d6e11652dee7a8087b StanVanKraaij <s.a.t.v.kraaij@student.tue.nl> 1629406454 +0200	commit (merge): Modified gradient descent
+b98e5cb1bc5ad455e39a43d6e11652dee7a8087b a702328f33efde9a589cf658727d7618dc82f0ad StanVanKraaij <s.a.t.v.kraaij@student.tue.nl> 1629406865 +0200	commit: Deleted .mat files
+a702328f33efde9a589cf658727d7618dc82f0ad a4ba8b2b78e35ec73cdb6d494c5745ddb11ba9b5 StanVanKraaij <s.a.t.v.kraaij@student.tue.nl> 1629727463 +0200	commit (amend): Deleted .mat files
