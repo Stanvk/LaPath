@@ -3,6 +3,8 @@
 import numpy as np
 import imageio
 import matplotlib.pyplot as plt
+from mpmath import mp
+mp.dps = 70
 
 def xy2i(x,y,l):
     #return y*l+x
@@ -12,14 +14,14 @@ def i2xy(i,l):
     #return divmod(i,l)[::-1]
     return divmod(i,l)[1]+1,divmod(i,l)[0]+1
 
-#maze = np.array([[1,1,1,1,1,1,1,1],[1,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,1],[1,1,1,1,1,1,1,1]])
-#maze[5,3]=1
 
-#imagePath = 'maze.bmp'
 #imagePath = 'maze2.bmp'
 imagePath = 'maze3.bmp'
 imageData = np.array(imageio.imread(imagePath))
 imageData = np.round(imageData/(np.max(imageData)))
+
+plt.imshow(imageData)
+plt.show()
 
 maze=np.pad(1-imageData,1,mode='constant',constant_values=1)
 
@@ -29,7 +31,7 @@ maze = 0.5*(maze+1)
 #set exit point
 #maze[7,3]=0
 #maze[210,0]=0;
-maze[74:80,100]=0;
+maze[70:75,100]=0;
 
 #initialize system matrix
 lx=maze.shape[0]-2
@@ -56,22 +58,24 @@ for y in range(1,maze.shape[1]-1):
         else:
             systemMatrix[i,i]=1
             systemRHS[i]=maze[x,y]
-        
-        #print((x,y,i))
-        #print(i2xy(i,lx))
 
 print('linear system defined')
         
-solutionVec=np.linalg.inv(systemMatrix).dot(systemRHS)
+# solutionVec=np.linalg.inv(systemMatrix).dot(systemRHS)
+solutionVec = np.linalg.solve(systemMatrix, systemRHS);
+# solutionVec = sp.solve(systemMatrix, systemRHS)
+# solutionVec = mp.lu_solve(systemMatrix,systemRHS);
+
 solutionMat=np.copy(maze)
 for i in range(0,solutionVec.shape[0]):
     x,y=i2xy(i,lx)
     solutionMat[x,y]=solutionVec[i]
+    np.save('solution.npy', solutionMat);
 
 plt.imshow(imageData)
+
     
 if False:
     from scipy import io
-    io.savemat('systemMatrix.mat', {'mydata': systemMatrix})
-    io.savemat('systemRHS.mat', {'mydata': systemRHS})
-    
+    io.savemat('systemMatrix.mat', {'matrix': systemMatrix})
+    io.savemat('systemRHS.mat', {'rhs': systemRHS})
