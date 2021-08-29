@@ -15,7 +15,7 @@ randomNumber = 4107;
 startingPoint = (voids[0][randomNumber],voids[1][randomNumber])
 x0,y0 = (startingPoint[0],startingPoint[1]);
 #x0,y0 = (34,90)
-x0, y0 = (50,22)
+x0, y0 = (31,1)
 x=x0
 y=y0
 pathX = [x0]
@@ -33,7 +33,7 @@ while True:
     for neighbour in neighbours:
         xn, yn = neighbour
 
-        if solutionMat[xn,yn] < valmin:
+        if abs(solutionMat[xn,yn]) < abs(valmin):
             xmin = xn
             ymin = yn
             valmin = solutionMat[xn,yn]
@@ -48,8 +48,8 @@ while True:
 
     iteration+=1
 
-plt.imshow(np.array(imageio.imread('maze3.bmp')))
-#plt.imshow(solutionMat)
+#plt.imshow(np.array(imageio.imread('maze3.bmp')))
+plt.imshow(solutionMat)
 plt.scatter(pathY,pathX,color='r')
 plt.show()
 
